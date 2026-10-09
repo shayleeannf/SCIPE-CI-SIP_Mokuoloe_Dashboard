@@ -35,7 +35,7 @@ map_data = pd.DataFrame({
 })
 
 # 2. Build the map chart using Plotly's scatter_mapbox function
-fig_map = px.scatter_mapbox(
+fig_map = px.scatter_map(
     map_data,
     lat='lat',
     lon='lon',
