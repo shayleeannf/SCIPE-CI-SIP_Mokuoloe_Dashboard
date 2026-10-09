@@ -34,32 +34,7 @@ map_data = pd.DataFrame({
     'lon': [-157.7885]  # Longitude for Mokuoloe
 })
 
-# 2. Build the map chart using standard scatter_mapbox
-fig_map = px.scatter_mapbox(
-    map_data,
-    lat='lat',
-    lon='lon',
-    hover_name='Island Name', 
-    zoom=11.5, 
-    height=450
-)
-
-# 3. Add styling to the marker 
-fig_map.update_traces(
-    marker=dict(
-        size=15,            
-        color='#D9383A'   # Crimson Red
-    )
-)
-
-# 4. Use mapbox_style for broad compatibility on Streamlit Cloud
-fig_map.update_layout(
-    mapbox_style="open-street-map", 
-    margin={"r":0,"t":0,"l":0,"b":0} 
-)
-
-# 5. Display the final map in your Streamlit dashboard
-st.plotly_chart(fig_map, use_container_width=True)
+st.map(map_data, zoom=11.5, size=50, color='#D9383A')
 
 # --- CHAPTER 1: THE HOOK ---
 st.markdown("""
