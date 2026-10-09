@@ -34,28 +34,28 @@ map_data = pd.DataFrame({
     'lon': [-157.7885]  # Longitude for Mokuoloe
 })
 
-# 2. Build the map chart using Plotly's scatter_mapbox function
-fig_map = px.scatter_map(
+# 2. Build the map chart using standard scatter_mapbox
+fig_map = px.scatter_mapbox(
     map_data,
     lat='lat',
     lon='lon',
-    hover_name='Island Name', # When you hover, it shows the name
-    zoom=11.5, # This level of zoom shows all of Oahu
+    hover_name='Island Name', 
+    zoom=11.5, 
     height=450
 )
 
-# 3. Add styling to the marker and the base map
+# 3. Add styling to the marker 
 fig_map.update_traces(
     marker=dict(
-        size=15,          # Make the marker big enough to see
-        color='#D9383A'   # Use a strong color (Crimson Red) for high contrast
+        size=15,            
+        color='#D9383A'   # Crimson Red
     )
 )
 
-# 4. Use a clear, standard terrain background (so you can see land vs. water)
+# 4. Use mapbox_style for broad compatibility on Streamlit Cloud
 fig_map.update_layout(
-    map={"style": "open-street-map"}, # Use a standard, clear map base
-    margin={"r":0,"t":0,"l":0,"b":0} # Remove all white margins
+    mapbox_style="open-street-map", 
+    margin={"r":0,"t":0,"l":0,"b":0} 
 )
 
 # 5. Display the final map in your Streamlit dashboard
