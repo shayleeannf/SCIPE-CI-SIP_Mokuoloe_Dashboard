@@ -54,7 +54,7 @@ fig_map.update_traces(
 
 # 4. Use a clear, standard terrain background (so you can see land vs. water)
 fig_map.update_layout(
-    mapbox="open-street-map", # Use a standard, clear map base
+    map="open-street-map", # Use a standard, clear map base
     margin={"r":0,"t":0,"l":0,"b":0} # Remove all white margins
 )
 
